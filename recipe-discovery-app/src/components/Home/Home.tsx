@@ -10,8 +10,8 @@ const Home = () => {
 
   if (data) {
     categories = (data as APICategoriesType).categories.map((category) => (
-      <li>
-        <Link to={`/categories/${category.strCategory}`}>
+      <li key={category.idCategory}>
+        <Link to={`/category/${category.strCategory}`}>
           {category.strCategory}
         </Link>
       </li>
