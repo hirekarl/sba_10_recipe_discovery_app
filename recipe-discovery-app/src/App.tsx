@@ -17,16 +17,16 @@ const App = () => {
   return (
     <>
       <NavBar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/category/:categoryName" element={<Category />} />
-        <FavoritesContextProvider>
+      <FavoritesContextProvider>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/category/:categoryName" element={<Category />} />
           <Route path="/recipe/:recipeId" element={<Recipe />} />
           <Route path="/favorites" element={<Favorites />} />
-        </FavoritesContextProvider>
-        <Route path="/search" element={<Search />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+          <Route path="/search" element={<Search />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </FavoritesContextProvider>
       <Footer />
     </>
   )

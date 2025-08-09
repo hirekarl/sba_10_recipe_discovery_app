@@ -71,6 +71,10 @@ export interface APIRecipeType {
   dateModified: string | null
 }
 
+export type APIRecipesType = {
+  meals: APIRecipeType[]
+}
+
 export type CategoryType = string
 
 export interface APICategoryType {
@@ -78,6 +82,10 @@ export interface APICategoryType {
   strCategory: string
   strCategoryThumb: string
   strCategoryDescription: string
+}
+
+export interface APICategoriesType {
+  categories: APICategoryType[]
 }
 
 export type APIEndpointType = "categories" | "filter" | "lookup" | "search"
