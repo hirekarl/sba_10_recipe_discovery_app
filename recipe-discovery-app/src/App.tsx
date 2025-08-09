@@ -24,6 +24,7 @@ const App = () => {
           <Route path="/recipe/:recipeId" element={<Recipe />} />
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/search" element={<Search />} />
+          <Route path="/not-found" element={<NotFound />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </FavoritesContextProvider>
