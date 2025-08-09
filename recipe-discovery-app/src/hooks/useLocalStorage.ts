@@ -8,6 +8,7 @@ export const useLocalStorage = (): [
 ] => {
   const [favorites, setFavorites] = useState<RecipeType[]>([])
 
+  // Initial state (get from localStorage)
   useEffect(() => {
     const localStorageFavorites = localStorage.getItem("karlFavorites")
     if (localStorageFavorites) {
@@ -17,6 +18,10 @@ export const useLocalStorage = (): [
       localStorage.setItem("karlFavorites", JSON.stringify([]))
     }
   }, [])
+
+  useEffect(() => {
+    localStorage.setItem("karlFavorites", JSON.stringify(favorites))
+  }, [favorites])
 
   return [favorites, setFavorites]
 }
