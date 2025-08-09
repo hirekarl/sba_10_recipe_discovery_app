@@ -1,5 +1,7 @@
 import { Routes, Route } from "react-router-dom"
 
+import FavoritesContextProvider from "./contexts/FavoritesContextProvider"
+
 import NavBar from "./components/NavBar"
 import Home from "./components/Home/Home"
 import Category from "./components/Category/Category"
@@ -18,8 +20,10 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/category/:categoryName" element={<Category />} />
-        <Route path="/recipe/:recipeId" element={<Recipe />} />
-        <Route path="/favorites" element={<Favorites />} />
+        <FavoritesContextProvider>
+          <Route path="/recipe/:recipeId" element={<Recipe />} />
+          <Route path="/favorites" element={<Favorites />} />
+        </FavoritesContextProvider>
         <Route path="/search" element={<Search />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
