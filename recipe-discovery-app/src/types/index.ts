@@ -14,3 +14,5 @@ export interface Recipe {
   youtube: string
   ingredients: Ingredient[]
 }
+
+export type APIEndpoint = "categories" | "filter" | "lookup" | "search"
