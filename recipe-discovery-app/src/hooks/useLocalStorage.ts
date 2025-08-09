@@ -20,6 +20,7 @@ export const useLocalStorage = (): [
     }
   })
 
+  // Update localStorage when favorites change.
   useEffect(() => {
     try {
       localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(favorites))
