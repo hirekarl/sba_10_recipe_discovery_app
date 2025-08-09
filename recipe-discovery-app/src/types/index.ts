@@ -1,9 +1,9 @@
-export interface Ingredient {
+export interface IngredientType {
   measure: string
   name: string
 }
 
-export interface Recipe {
+export interface RecipeType {
   id: number
   name: string
   category: string
@@ -12,10 +12,10 @@ export interface Recipe {
   thumbnail: string
   tags: string[]
   youtube: string
-  ingredients: Ingredient[]
+  ingredients: IngredientType[]
 }
 
-export interface APIRecipe {
+export interface APIRecipeType {
   idMeal: string
   strMeal: string
   strMealAlternate: string | null
@@ -71,13 +71,13 @@ export interface APIRecipe {
   dateModified: string | null
 }
 
-export type Category = string
+export type CategoryType = string
 
-export interface APICategory {
+export interface APICategoryType {
   idCategory: string
   strCategory: string
   strCategoryThumb: string
   strCategoryDescription: string
 }
 
-export type APIEndpoint = "categories" | "filter" | "lookup" | "search"
+export type APIEndpointType = "categories" | "filter" | "lookup" | "search"

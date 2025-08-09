@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react"
-import type { APIEndpoint, APICategory, APIRecipe } from "../types"
+import type { APIEndpointType, APICategoryType, APIRecipeType } from "../types"
 import { ENDPOINT_URL } from "../constants"
 
 interface fetchOption {
-  type: APIEndpoint
+  type: APIEndpointType
   term: string | null
 }
 
@@ -20,7 +20,7 @@ interface otherFetchOption extends fetchOption {
 export type useFetchOption = categoriesFetchOption | otherFetchOption
 
 export const useFetch = (option: useFetchOption) => {
-  const [data, setData] = useState<APICategory[] | APIRecipe[] | null>(null)
+  const [data, setData] = useState<APICategoryType[] | APIRecipeType[] | null>(null)
   const [loading, setLoading] = useState<boolean>(false)
   const [error, setError] = useState<string>("")
 
