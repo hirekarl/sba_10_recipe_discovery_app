@@ -7,7 +7,12 @@ const FavoritesContextProvider = ({ children }: { children: ReactNode }) => {
   const [favorites, setFavorites] = useLocalStorage()
 
   const addFavorite = (recipe: APIRecipeType): void => {
-    setFavorites((prevFavorites) => [...prevFavorites, recipe])
+    // Alphabetize favorites
+    setFavorites((prevFavorites) =>
+      [...prevFavorites, recipe].sort((a, b) =>
+        a.strMeal.localeCompare(b.strMeal)
+      )
+    )
   }
 
   const removeFavorite = (recipe: APIRecipeType): void => {
@@ -20,7 +25,8 @@ const FavoritesContextProvider = ({ children }: { children: ReactNode }) => {
   }
 
   return (
-    <FavoritesContext.Provider value={{ favorites, addFavorite, removeFavorite }}>
+    <FavoritesContext.Provider
+      value={{ favorites, addFavorite, removeFavorite }}>
       {children}
     </FavoritesContext.Provider>
   )
