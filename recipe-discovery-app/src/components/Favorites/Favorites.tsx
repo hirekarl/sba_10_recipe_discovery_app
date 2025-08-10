@@ -17,17 +17,23 @@ const Favorites = () => {
   }
   return (
     <>
-      {favorites && (
-        <div className="container-fluid">
-          <div className="row">
-            <div className="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-              <div className="my-4"></div>
-              <h1 className="text-center my-4">Favorite Recipes</h1>
-              <div className="row">{recipeCards}</div>
+      <div className="container-fluid">
+        <div className="row">
+          <div className="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+            <div className="my-4"></div>
+            <h1 className="text-center my-4">Favorite Recipes</h1>
+            <div className="row">
+              {favorites.length === 0 ? (
+                <p className="text-center">
+                  <em>No Favorites yet!</em>
+                </p>
+              ) : (
+                recipeCards
+              )}
             </div>
           </div>
         </div>
-      )}
+      </div>
     </>
   )
 }
