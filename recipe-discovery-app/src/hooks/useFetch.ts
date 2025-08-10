@@ -27,8 +27,8 @@ export const useFetch = (option: useFetchOption) => {
   const [data, setData] = useState<APICategoriesType | APIRecipesType | null>(
     null
   )
-  const [loading, setLoading] = useState<boolean>(false)
-  const [error, setError] = useState<string>("")
+  const [loading, setLoading] = useState<boolean>(true)
+  const [error, setError] = useState<string | null>(null)
 
   let url: string = ""
 
