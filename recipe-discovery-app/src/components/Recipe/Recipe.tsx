@@ -30,7 +30,11 @@ const Recipe = () => {
       let measure: string | null = null
       let ingredient: string | null = null
 
-      if (measureKey in recipe) {
+      if (
+        measureKey in recipe &&
+        recipe[measureKey] !== null &&
+        recipe[measureKey] !== ""
+      ) {
         measure = `${recipe[measureKey]} `
       }
 
