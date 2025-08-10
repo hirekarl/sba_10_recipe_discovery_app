@@ -102,7 +102,11 @@ const Recipe = () => {
               <section className="text-center mb-4" aria-label="Photograph">
                 <img
                   className="rounded-3 shadow"
-                  src={recipe.strMealThumb}
+                  src={
+                    recipe.strMealThumb ||
+                    recipe.strMealThumb ||
+                    "https://placehold.co/700/transparent/DEE2E6?text=Image+Not+Found"
+                  }
                   alt={recipe.strMeal}
                   style={{ height: "50dvh", width: "100%", objectFit: "cover" }}
                 />
