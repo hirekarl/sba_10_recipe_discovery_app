@@ -1,19 +1,19 @@
 import type { ReactNode } from "react"
-import type { RecipeType } from "../types"
+import type { APIRecipeType } from "../types"
 import { useLocalStorage } from "../hooks/useLocalStorage"
 import FavoritesContext from "./FavoritesContext"
 
 const FavoritesContextProvider = ({ children }: { children: ReactNode }) => {
   const [favorites, setFavorites] = useLocalStorage()
 
-  const addFavorite = (recipe: RecipeType): void => {
+  const addFavorite = (recipe: APIRecipeType): void => {
     setFavorites((prevFavorites) => [...prevFavorites, recipe])
   }
 
-  const removeFavorite = (recipe: RecipeType): void => {
+  const removeFavorite = (recipe: APIRecipeType): void => {
     setFavorites((prevFavorites) =>
       prevFavorites.toSpliced(
-        prevFavorites.findIndex((r) => r.id === recipe.id),
+        prevFavorites.findIndex((r) => r.idMeal === recipe.idMeal),
         1
       )
     )

@@ -1,18 +1,18 @@
 import { useEffect, useState, type Dispatch, type SetStateAction } from "react"
-import type { RecipeType } from "../types"
+import type { APIRecipeType } from "../types"
 
 const LOCAL_STORAGE_KEY = "karlFavorites"
 
 export const useLocalStorage = (): [
-  RecipeType[],
-  Dispatch<SetStateAction<RecipeType[]>>
+  APIRecipeType[],
+  Dispatch<SetStateAction<APIRecipeType[]>>
 ] => {
   // Initial state (get from localStorage)
-  const [favorites, setFavorites] = useState<RecipeType[]>(() => {
+  const [favorites, setFavorites] = useState<APIRecipeType[]>(() => {
     try {
       const localStorageFavorites = localStorage.getItem(LOCAL_STORAGE_KEY)
       return localStorageFavorites
-        ? (JSON.parse(localStorageFavorites) as RecipeType[])
+        ? (JSON.parse(localStorageFavorites) as APIRecipeType[])
         : []
     } catch (error) {
       console.error("Couldn't get favorites from localStorage:", error)
