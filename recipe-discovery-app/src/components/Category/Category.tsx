@@ -1,7 +1,8 @@
+import { type ReactNode } from "react"
 import { Link, Navigate, useParams } from "react-router-dom"
 import { useFetch } from "../../hooks/useFetch"
 import type { APIRecipesType } from "../../types"
-import type { ReactNode } from "react"
+import RecipeCard from "../Recipe/RecipeCard"
 
 const Category = () => {
   const { categoryName } = useParams()
@@ -12,13 +13,13 @@ const Category = () => {
 
   if (!categoryName) return <Navigate to="/not-found" />
 
-  let recipes: ReactNode = null
+  let recipeCards: ReactNode = null
 
   if (data) {
-    recipes = (data as APIRecipesType).meals.map((meal) => (
-      <li key={meal.idMeal}>
-        <Link to={`/recipe/${meal.idMeal}`}>{meal.strMeal}</Link>
-      </li>
+    recipeCards = (data as APIRecipesType).meals.map((recipe) => (
+      <div key={recipe.idMeal} className="col-lg-3 col-md-4 col-sm-6 mb-3">
+        <RecipeCard recipe={recipe} />
+      </div>
     ))
   }
 
@@ -26,10 +27,27 @@ const Category = () => {
 
   return (
     <>
-      <h1>{categoryName}</h1>
-      {loading && <div>Loading&hellip;</div>}
-      {error && <div className="text-danger">{error}</div>}
-      <ul>{recipes}</ul>
+      {/* TODO: Replace with spinner */}
+      {loading && <div className="text-center">Loading&hellip;</div>}
+
+      {/* TODO: Make this is a console.error call instead? */}
+      {error && <div className="text-danger text-center">{error}</div>}
+      {recipeCards && (
+        <div
+          className="container-fluid">
+          <div className="row">
+            <div className="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+              <div className="mb-4">
+                <Link className="btn btn-primary btn-sm" to="/">
+                  <i className="bi bi-arrow-left"></i> All Categories
+                </Link>
+              </div>
+              <h1 className="text-center mb-4">{categoryName}</h1>
+              <div className="row">{recipeCards}</div>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   )
 }
