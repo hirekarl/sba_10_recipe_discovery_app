@@ -17,17 +17,29 @@ const App = () => {
   return (
     <>
       <NavBar />
-      <FavoritesContextProvider>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/category/:categoryName" element={<Category />} />
-          <Route path="/recipe/:recipeId" element={<Recipe />} />
-          <Route path="/favorites" element={<Favorites />} />
-          <Route path="/search" element={<Search />} />
-          <Route path="/not-found" element={<NotFound />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </FavoritesContextProvider>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/category/:categoryName" element={<Category />} />
+        <Route
+          path="/recipe/:recipeId"
+          element={
+            <FavoritesContextProvider>
+              <Recipe />
+            </FavoritesContextProvider>
+          }
+        />
+        <Route
+          path="/favorites"
+          element={
+            <FavoritesContextProvider>
+              <Favorites />
+            </FavoritesContextProvider>
+          }
+        />
+        <Route path="/search" element={<Search />} />
+        <Route path="/not-found" element={<NotFound />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
       <Footer />
     </>
   )
