@@ -1,6 +1,7 @@
 import { Link, Navigate, useParams } from "react-router-dom"
 import { useFetch } from "../../hooks/useFetch"
 import type { APIRecipesType, APIRecipeType } from "../../types"
+import FavoriteButton from "../FavoriteButton"
 
 const MAX_INGREDIENTS_COUNT = 20
 
@@ -114,6 +115,11 @@ const Recipe = () => {
                   style={{ height: "50dvh", width: "100%", objectFit: "cover" }}
                 />
               </section>
+
+              {/* Favorite Button */}
+              <div className="mb-4">
+                <FavoriteButton recipe={recipe} />
+              </div>
 
               {/* Ingredients */}
               <section className="mb-4">

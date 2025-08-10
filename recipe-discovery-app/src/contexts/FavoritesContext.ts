@@ -1,12 +1,16 @@
 import { createContext } from "react"
 import type { APIRecipeType } from "../types"
 
-interface FavoritesContextType {
+export interface FavoritesContextType {
   favorites: APIRecipeType[]
   addFavorite: (recipe: APIRecipeType) => void
   removeFavorite: (recipe: APIRecipeType) => void
 }
 
-const FavoritesContext = createContext<FavoritesContextType | null>(null)
+const FavoritesContext = createContext<FavoritesContextType>({
+  favorites: [],
+  addFavorite: () => {},
+  removeFavorite: () => {},
+})
 
 export default FavoritesContext
