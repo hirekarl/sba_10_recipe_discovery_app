@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom"
+import { Navigate, Routes, Route } from "react-router-dom"
 
 import FavoritesContextProvider from "./contexts/FavoritesContextProvider"
 
@@ -38,7 +38,7 @@ const App = () => {
         />
         <Route path="/search" element={<Search />} />
         <Route path="/not-found" element={<NotFound />} />
-        <Route path="*" element={<NotFound />} />
+        <Route path="*" element={<Navigate to="/not-found" />} />
       </Routes>
       <Footer />
     </>
