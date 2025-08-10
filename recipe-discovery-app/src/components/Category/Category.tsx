@@ -37,12 +37,12 @@ const Category = () => {
           className="container-fluid">
           <div className="row">
             <div className="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-              <div className="mb-4">
+              <div className="my-4">
                 <Link className="btn btn-primary btn-sm" to="/">
                   <i className="bi bi-arrow-left"></i> All Categories
                 </Link>
               </div>
-              <h1 className="text-center mb-4">{categoryName}</h1>
+              <h1 className="text-center my-4">{categoryName}</h1>
               <div className="row">{recipeCards}</div>
             </div>
           </div>

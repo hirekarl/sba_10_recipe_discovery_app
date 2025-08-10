@@ -72,7 +72,7 @@ const Recipe = () => {
           <div className="row">
             <article className="col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-10 offset-sm-1">
               {/* Category Button */}
-              <div className="mb-4">
+              <div className="my-4">
                 <Link
                   className="btn btn-primary btn-sm"
                   to={`/category/${recipe.strCategory}`}>
@@ -81,7 +81,7 @@ const Recipe = () => {
               </div>
 
               {/* Meal Name */}
-              <h1 className="text-center mb-4">{recipe.strMeal}</h1>
+              <h1 className="text-center my-4">{recipe.strMeal}</h1>
 
               {/* Alternate Name */}
               {recipe.strMealAlternate && (
