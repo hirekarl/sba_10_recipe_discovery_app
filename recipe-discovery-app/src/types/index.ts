@@ -1,20 +1,3 @@
-export interface IngredientType {
-  measure: string
-  name: string
-}
-
-export interface RecipeType {
-  id: number
-  name: string
-  category: string
-  locale: string
-  instructions: string
-  thumbnail: string
-  tags: string[]
-  youtube: string
-  ingredients: IngredientType[]
-}
-
 export interface APIRecipeType {
   idMeal: string
   strMeal: string
@@ -74,8 +57,6 @@ export interface APIRecipeType {
 export type APIRecipesType = {
   meals: APIRecipeType[]
 }
-
-export type CategoryType = string
 
 export interface APICategoryType {
   idCategory: string
