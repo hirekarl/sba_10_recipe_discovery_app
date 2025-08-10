@@ -2,6 +2,8 @@ import { Link, Navigate, useParams } from "react-router-dom"
 import { useFetch } from "../../hooks/useFetch"
 import type { APIRecipesType, APIRecipeType } from "../../types"
 
+const MAX_INGREDIENTS_COUNT = 20
+
 const Recipe = () => {
   const { recipeId } = useParams()
   const { data, loading, error } = useFetch({
@@ -18,9 +20,10 @@ const Recipe = () => {
 
   if (!data && !loading) return <Navigate to="/not-found" />
 
+  // Zip measures and ingredients
   const ingredients: string[] = []
   if (recipe) {
-    for (let i = 1; i <= 20; i++) {
+    for (let i = 1; i <= MAX_INGREDIENTS_COUNT; i++) {
       const measureKey = `strMeasure${i}` as keyof APIRecipeType
       const ingredientKey = `strIngredient${i}` as keyof APIRecipeType
 
@@ -44,6 +47,7 @@ const Recipe = () => {
     }
   }
 
+  // Make ingredients list items
   const ingredientsList = ingredients.map((ingredient) => (
     <li className="list-group-item" key={ingredient}>
       {ingredient}
@@ -52,12 +56,17 @@ const Recipe = () => {
 
   return (
     <>
+      {/* TODO: Replace with spinner */}
       {loading && <div className="text-center">Loading&hellip;</div>}
+
+      {/* TODO: Make this is a console.error call instead? */}
       {error && <div className="text-danger text-center">{error}</div>}
+
       {recipe && (
         <div className="container-fluid">
           <div className="row">
             <article className="col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-10 offset-sm-1">
+              {/* Category Button */}
               <div className="mb-4">
                 <Link
                   className="btn btn-primary btn-sm"
@@ -65,10 +74,16 @@ const Recipe = () => {
                   <i className="bi bi-arrow-left"></i> {recipe.strCategory}
                 </Link>
               </div>
+
+              {/* Meal Name */}
               <h1 className="text-center mb-4">{recipe.strMeal}</h1>
+
+              {/* Alternate Name */}
               {recipe.strMealAlternate && (
                 <h2 className="text-center">{recipe.strMealAlternate}</h2>
               )}
+
+              {/* Tags */}
               {recipe.strTags && (
                 <section
                   className="d-flex justify-content-center gap-2 mb-4"
@@ -83,6 +98,7 @@ const Recipe = () => {
                 </section>
               )}
 
+              {/* Photograph */}
               <section className="text-center mb-4" aria-label="Photograph">
                 <img
                   className="rounded-3 shadow"
@@ -91,16 +107,22 @@ const Recipe = () => {
                   style={{ height: "50dvh", width: "100%", objectFit: "cover" }}
                 />
               </section>
+
+              {/* Ingredients */}
               <section className="mb-4">
                 <h3>Ingredients</h3>
                 <ul className="list-group">{ingredientsList}</ul>
               </section>
+
+              {/* Directions */}
               <section className="mb-4">
                 <h3>Directions</h3>
                 {recipe.strInstructions.split("\r\n").map((p, i) => (
                   <p key={i}>{p}</p>
                 ))}
               </section>
+
+              {/* YouTube Button */}
               {recipe.strYoutube && (
                 <div className="text-center">
                   <a
