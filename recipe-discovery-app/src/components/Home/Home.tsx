@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom"
 import { useFetch } from "../../hooks/useFetch"
 import type { APICategoriesType } from "../../types"
 import Spinner from "../Spinner"
+import ErrorMessage from "../ErrorMessage"
 
 const Home = () => {
   const { data, loading, error } = useFetch({ type: "categories", term: null })
@@ -40,10 +41,12 @@ const Home = () => {
     ))
   }
 
+  if (error) console.error(error)
+
   return (
     <>
       {loading && <Spinner />}
-      {error && <div className="text-danger">{error}</div>}
+      {error && <ErrorMessage />}
       {!loading && !error && (
         <div className="container-fluid">
           <div className="row">

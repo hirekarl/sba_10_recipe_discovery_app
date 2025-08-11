@@ -2,6 +2,7 @@ import { Link, Navigate, useParams } from "react-router-dom"
 import { useFetch } from "../../hooks/useFetch"
 import type { APIRecipesType, APIRecipeType } from "../../types"
 import Spinner from "../Spinner"
+import ErrorMessage from "../ErrorMessage"
 import FavoriteButton from "../FavoriteButton"
 
 const MAX_INGREDIENTS_COUNT = 20
@@ -60,13 +61,12 @@ const Recipe = () => {
     </li>
   ))
 
+  if (error) console.error(error)
+
   return (
     <>
       {loading && <Spinner />}
-
-      {/* TODO: Make this is a console.error call instead? */}
-      {error && <div className="text-danger text-center">{error}</div>}
-
+      {error && <ErrorMessage />}
       {recipe && !loading && !error && (
         <div className="container-fluid">
           <div className="row">

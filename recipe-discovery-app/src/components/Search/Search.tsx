@@ -3,6 +3,7 @@ import { Navigate, useSearchParams } from "react-router-dom"
 import type { APIRecipesType } from "../../types"
 import { useFetch } from "../../hooks/useFetch"
 import Spinner from "../Spinner"
+import ErrorMessage from "../ErrorMessage"
 import RecipeCard from "../Recipe/RecipeCard"
 
 const Search = () => {
@@ -24,14 +25,12 @@ const Search = () => {
   }
 
   if (!data && !loading) return <Navigate to="/not-found" />
+  if (error) console.error(error)
 
   return (
     <>
       {loading && <Spinner />}
-
-      {/* TODO: Make this is a console.error call instead? */}
-      {error && <div className="text-danger text-center">{error}</div>}
-
+      {error && <ErrorMessage />}
       {!loading && !error && (
         <div className="container-fluid">
           <div className="row">

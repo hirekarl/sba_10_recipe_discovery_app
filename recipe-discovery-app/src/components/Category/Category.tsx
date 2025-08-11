@@ -4,6 +4,7 @@ import { useFetch } from "../../hooks/useFetch"
 import type { APIRecipesType } from "../../types"
 import RecipeCard from "../Recipe/RecipeCard"
 import Spinner from "../Spinner"
+import ErrorMessage from "../ErrorMessage"
 
 const Category = () => {
   const { categoryName } = useParams()
@@ -25,14 +26,12 @@ const Category = () => {
   }
 
   if (!data && !loading) return <Navigate to="/not-found" />
+  if (error) console.error(error)
 
   return (
     <>
-      {/* TODO: Replace with spinner */}
       {loading && <Spinner />}
-
-      {/* TODO: Make this is a console.error call instead? */}
-      {error && <div className="text-danger text-center">{error}</div>}
+      {error && <ErrorMessage />}
       {recipeCards && !loading && !error && (
         <div className="container-fluid">
           <div className="row">
