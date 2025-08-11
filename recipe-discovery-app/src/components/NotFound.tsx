@@ -9,7 +9,7 @@ const NotFound = () => {
           <p className="text-center">
             Uh-oh! The resource you requested doesn't exist.
           </p>
-          <p>
+          <p className="text-center">
             Would you like to back to the <Link to="/">homepage</Link>?
           </p>
         </div>

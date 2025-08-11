@@ -9,7 +9,7 @@ const ErrorMessage = () => {
           <p className="text-center">
             Uh-oh! There was an error on our end.
           </p>
-          <p>Would you like to back to the <Link to="/">homepage</Link>?</p>
+          <p className="text-center">Would you like to back to the <Link to="/">homepage</Link>?</p>
         </div>
       </div>
     </div>
