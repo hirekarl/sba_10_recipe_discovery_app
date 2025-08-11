@@ -15,7 +15,7 @@ import "./App.css"
 
 const App = () => {
   return (
-    <>
+    <div id="appRoot">
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -41,7 +41,7 @@ const App = () => {
         <Route path="*" element={<Navigate to="/not-found" />} />
       </Routes>
       <Footer />
-    </>
+    </div>
   )
 }
 

@@ -2,6 +2,7 @@ import type { ReactNode } from "react"
 import { Navigate, useSearchParams } from "react-router-dom"
 import type { APIRecipesType } from "../../types"
 import { useFetch } from "../../hooks/useFetch"
+import Spinner from "../Spinner"
 import RecipeCard from "../Recipe/RecipeCard"
 
 const Search = () => {
@@ -26,8 +27,7 @@ const Search = () => {
 
   return (
     <>
-      {/* TODO: Replace with spinner */}
-      {loading && <div className="text-center">Loading&hellip;</div>}
+      {loading && <Spinner />}
 
       {/* TODO: Make this is a console.error call instead? */}
       {error && <div className="text-danger text-center">{error}</div>}

@@ -2,6 +2,7 @@ import { type ReactNode } from "react"
 import { useNavigate } from "react-router-dom"
 import { useFetch } from "../../hooks/useFetch"
 import type { APICategoriesType } from "../../types"
+import Spinner from "../Spinner"
 
 const Home = () => {
   const { data, loading, error } = useFetch({ type: "categories", term: null })
@@ -41,7 +42,7 @@ const Home = () => {
 
   return (
     <>
-      {loading && <div>Loading&hellip;</div>}
+      {loading && <Spinner />}
       {error && <div className="text-danger">{error}</div>}
       {!loading && !error && (
         <div className="container-fluid">

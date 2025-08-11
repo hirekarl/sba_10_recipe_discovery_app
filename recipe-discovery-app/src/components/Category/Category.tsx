@@ -3,6 +3,7 @@ import { Link, Navigate, useParams } from "react-router-dom"
 import { useFetch } from "../../hooks/useFetch"
 import type { APIRecipesType } from "../../types"
 import RecipeCard from "../Recipe/RecipeCard"
+import Spinner from "../Spinner"
 
 const Category = () => {
   const { categoryName } = useParams()
@@ -28,7 +29,7 @@ const Category = () => {
   return (
     <>
       {/* TODO: Replace with spinner */}
-      {loading && <div className="text-center">Loading&hellip;</div>}
+      {loading && <Spinner />}
 
       {/* TODO: Make this is a console.error call instead? */}
       {error && <div className="text-danger text-center">{error}</div>}
