@@ -9,12 +9,12 @@ export interface FavoriteButtonProps {
 }
 
 const FavoriteButton = ({ recipe }: FavoriteButtonProps) => {
-  const { favorites, addFavorite, removeFavorite } =
+  const { addFavorite, removeFavorite, isFavorite } =
     useContext<FavoritesContextType>(FavoritesContext)
 
-  const isFavorite = favorites.find((r) => r.idMeal === recipe.idMeal)
+  const recipeIsFavorite = isFavorite(recipe)
 
-  const button = isFavorite ? (
+  const button = recipeIsFavorite ? (
     <button
       type="button"
       onClick={() => removeFavorite(recipe)}

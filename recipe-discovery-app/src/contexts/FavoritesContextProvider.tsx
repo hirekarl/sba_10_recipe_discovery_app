@@ -24,9 +24,14 @@ const FavoritesContextProvider = ({ children }: { children: ReactNode }) => {
     )
   }
 
+  const isFavorite = (recipe: APIRecipeType): boolean => {
+    const recipeIsFavorite = favorites.find((r) => r.idMeal === recipe.idMeal)
+    return recipeIsFavorite ? true : false
+  }
+
   return (
     <FavoritesContext.Provider
-      value={{ favorites, addFavorite, removeFavorite }}>
+      value={{ favorites, addFavorite, removeFavorite, isFavorite }}>
       {children}
     </FavoritesContext.Provider>
   )
