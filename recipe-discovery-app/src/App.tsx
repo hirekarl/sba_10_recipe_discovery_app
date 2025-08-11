@@ -15,33 +15,35 @@ import "./App.css"
 
 const App = () => {
   return (
-    <div id="appRoot">
+    <>
       <NavBar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/category/:categoryName" element={<Category />} />
-        <Route
-          path="/recipe/:recipeId"
-          element={
-            <FavoritesContextProvider>
-              <Recipe />
-            </FavoritesContextProvider>
-          }
-        />
-        <Route
-          path="/favorites"
-          element={
-            <FavoritesContextProvider>
-              <Favorites />
-            </FavoritesContextProvider>
-          }
-        />
-        <Route path="/search" element={<Search />} />
-        <Route path="/not-found" element={<NotFound />} />
-        <Route path="*" element={<Navigate to="/not-found" />} />
-      </Routes>
+      <div style={{ minHeight: "calc(100dvh - 7rem)" }}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/category/:categoryName" element={<Category />} />
+          <Route
+            path="/recipe/:recipeId"
+            element={
+              <FavoritesContextProvider>
+                <Recipe />
+              </FavoritesContextProvider>
+            }
+          />
+          <Route
+            path="/favorites"
+            element={
+              <FavoritesContextProvider>
+                <Favorites />
+              </FavoritesContextProvider>
+            }
+          />
+          <Route path="/search" element={<Search />} />
+          <Route path="/not-found" element={<NotFound />} />
+          <Route path="*" element={<Navigate to="/not-found" />} />
+        </Routes>
+      </div>
       <Footer />
-    </div>
+    </>
   )
 }
 

@@ -19,14 +19,14 @@ const FavoriteButton = ({ recipe }: FavoriteButtonProps) => {
       type="button"
       onClick={() => removeFavorite(recipe)}
       className="btn btn-danger w-100">
-      <i className="bi bi-star-fill"></i> Remove Favorite
+      <i className="bi bi-star-fill"></i> Remove from Favorites
     </button>
   ) : (
     <button
       type="button"
       onClick={() => addFavorite(recipe)}
       className="btn btn-primary w-100">
-      <i className="bi bi-star"></i> Add Favorite
+      <i className="bi bi-star"></i> Add to Favorites
     </button>
   )
   return button
