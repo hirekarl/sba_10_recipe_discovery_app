@@ -30,7 +30,9 @@ Write a short section in your README.md or in a separate REFLECTION.md file deta
 >
 > Whenever the user requests a resource that can't be found, they're redirected to a `/not-found` route. I initially thought of rendering a `NotFound` component on each route when resources aren't found, but I found it cleaner to send them to a dedicated route that communicates the "not found." A splat route also redirects users to `/not-found`.
 >
-> I also chose to implement the `SearchBar` with a button instead of sending debounced requests to the API based on changes in the `<input>`. That could be a cool feature for a v2. The Search button is disabled unless the input has some value, and search strings' spaces are replaced with `+` to properly query the API when more than one word is sent as part of the query.
+> I would also like to figure out how to delay page display until all images on the page are loaded; right now, the `Spinner` drops and then all images load.
+>
+> I chose to implement the `SearchBar` with a button instead of sending debounced requests to the API based on changes in the `<input>`. That could be a cool feature for a v2. The Search button is disabled unless the input has some value, and search strings' spaces are replaced with `+` to properly query the API when more than one word is sent as part of the query.
 
 ## Assignment
 For this project, you will build a client-side “Recipe Discovery” application. This project will serve as a comprehensive demonstration of your mastery of advanced React concepts. The application will allow users to browse recipes by category, search for specific recipes, view detailed recipe information, and manage a personal list of “favorite” recipes.
