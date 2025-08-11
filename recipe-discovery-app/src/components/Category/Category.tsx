@@ -32,9 +32,8 @@ const Category = () => {
 
       {/* TODO: Make this is a console.error call instead? */}
       {error && <div className="text-danger text-center">{error}</div>}
-      {recipeCards && (
-        <div
-          className="container-fluid">
+      {recipeCards && !loading && !error && (
+        <div className="container-fluid">
           <div className="row">
             <div className="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
               <div className="my-4">

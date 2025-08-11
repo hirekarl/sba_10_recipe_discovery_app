@@ -67,7 +67,7 @@ const Recipe = () => {
       {/* TODO: Make this is a console.error call instead? */}
       {error && <div className="text-danger text-center">{error}</div>}
 
-      {recipe && (
+      {recipe && !loading && !error && (
         <div className="container-fluid">
           <div className="row">
             <article className="col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-10 offset-sm-1">

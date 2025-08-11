@@ -1,4 +1,5 @@
 import { Link, NavLink } from "react-router-dom"
+import SearchBar from "./Search/SearchBar"
 
 const NavBar = () => {
   return (
@@ -20,12 +21,25 @@ const NavBar = () => {
         <div className="collapse navbar-collapse" id="navLinks">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <NavLink to="/" className={({ isActive}) => (isActive ? "nav-link active" : "nav-link")}>Categories</NavLink>
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  isActive ? "nav-link active" : "nav-link"
+                }>
+                Categories
+              </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink to="/favorites" className={({ isActive}) => (isActive ? "nav-link active" : "nav-link")}><i className="bi bi-star-fill"></i> Favorites</NavLink>
+              <NavLink
+                to="/favorites"
+                className={({ isActive }) =>
+                  isActive ? "nav-link active" : "nav-link"
+                }>
+                <i className="bi bi-star-fill"></i> Favorites
+              </NavLink>
             </li>
           </ul>
+          <SearchBar />
         </div>
       </div>
     </nav>

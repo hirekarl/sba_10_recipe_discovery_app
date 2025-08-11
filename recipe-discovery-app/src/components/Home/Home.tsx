@@ -43,14 +43,16 @@ const Home = () => {
     <>
       {loading && <div>Loading&hellip;</div>}
       {error && <div className="text-danger">{error}</div>}
-      <div className="container-fluid">
-        <div className="row">
-          <div className="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-            <h1 className="text-center my-4">Recipe Categories</h1>
-            <div className="row">{categories}</div>
+      {!loading && !error && (
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+              <h1 className="text-center my-4">Recipe Categories</h1>
+              <div className="row">{categories}</div>
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </>
   )
 }
