@@ -3,7 +3,7 @@ import SearchBar from "./Search/SearchBar"
 
 const NavBar = () => {
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <nav className="sticky-top navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
         <Link to="/" className="navbar-brand">
           <i className="bi bi-fork-knife"></i> My Recipes

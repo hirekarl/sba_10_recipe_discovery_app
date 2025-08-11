@@ -41,7 +41,7 @@ const Category = () => {
                   <i className="bi bi-arrow-left"></i> All Categories
                 </Link>
               </div>
-              <h1 className="text-center my-4">{categoryName}</h1>
+              <h1 className="text-center my-4">Category: {categoryName}</h1>
               <div className="row">{recipeCards}</div>
             </div>
           </div>
