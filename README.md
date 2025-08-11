@@ -4,7 +4,7 @@
 2025-RTT-30  
 <time datetime="2025-08-09">2025-08-09</time>  
 
-![Alt text for preview image goes here.](./preview.png)
+![Screenshot of SBA 10 submission with the '/favorites' route rendered.](./preview.png)
 
 ## Overview
 ### Viewer Instructions
